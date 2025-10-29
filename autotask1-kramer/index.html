@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Понкратов Николай</title>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .equals {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+            input {
+                height: 1.2em;
+                border-radius: 0.4em;
+                border-color: rgb(228, 228, 228);
+            }
+            input:focus {
+                border: black;
+            }
+            p {
+                padding: 0 0.3em 0 0.3em;
+            }
+            .result__output {
+                padding: 0.6em 0 0.6em 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h4>ponkratov_na</h4>
+        <div class="equals">
+            <input type="number" id="n1" value="2">
+            <p>x + </p>
+            <input type="number" id="n2" value="3">
+            <p>y = </p>
+            <input type="number" id="n3" value="18">
+        </div>
+        <div class="equals">
+            <input type="number" id="n4" value="4">
+            <p>x + </p>
+            <input type="number" id="n5" value="-5">
+            <p>y = </p>
+            <input type="number" id="n6" value="-8">
+        </div>
+
+        <button id="bt">Вычислить!</button>
+
+        <span class="result__output">
+            <label for="result1">x = </label>
+            <input type="number" id="result1">
+        </span>
+        <span>
+            <label for="result2">y = </label>
+            <input type="number" id="result2">
+        </span>
+        <script>
+            const el_n1 = document.getElementById("n1");
+            const el_n2 = document.getElementById("n2"); 
+            const el_n3 = document.getElementById("n3"); 
+            const el_n4 = document.getElementById("n4"); 
+            const el_n5 = document.getElementById("n5"); 
+            const el_n6 = document.getElementById("n6"); 
+
+            const el_result1 = document.getElementById("result1"); 
+            const el_result2 = document.getElementById("result2"); 
+
+            document.getElementById("bt").addEventListener("click", function () {
+                const _n1 = parseInt(el_n1.value);
+                const _n2 = parseInt(el_n2.value);
+                const _n3 = parseInt(el_n3.value);
+                const _n4 = parseInt(el_n4.value);
+                const _n5 = parseInt(el_n5.value);
+                const _n6 = parseInt(el_n6.value);
+                if (isNaN(_n1) ||isNaN(_n2) ||isNaN(_n3) ||isNaN(_n4) ||isNaN(_n5) ||isNaN(_n6)){
+                    el_result1.value = "";
+                    el_result2.value = "";
+                    return;
+                }
+
+                const _lam = _n1 * _n5 - _n2 * _n4;
+                if (Math.abs(_lam) < 0.0001){
+                    el_result1.value = "";
+                    el_result2.value = "";
+                    return;
+                }
+                const _lam_x = _n3 * _n5 - _n2 * _n6;
+                const _lam_y = _n1 * _n6 - _n3 * _n4;
+
+                el_result1.value = _lam_x / _lam;
+                el_result2.value = _lam_y / _lam;
+            })
+        </script>
+    </body>
+</html>
