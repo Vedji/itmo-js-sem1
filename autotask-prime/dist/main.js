@@ -1,1 +1,1 @@
-(()=>{"use strict";var t=window.location.search.replace("?","");const e=(r=t=t?Number(t):0)<=0?[]:Array.from({length:r},(t,e)=>e+1);var r;hh.textContent=e.length-2})();
+(()=>{"use strict";const e=new Set,t=new Set;function r(n){if(t.has(n))return!0;if(e.has(n))return!1;if(n%2==0)return!1;if(n%3==0)return!1;for(let t=5;t*t<=n;t=t%6==1?t+4:t+2)if(r(t)&&n%t===0)return e.add(n),!1;return t.add(n),!0}e.add(1),t.add(2),t.add(3);var n=window.location.search.replace("?","");if(n){n=Number(n);const e=[];for(let t=2;t<=n;t++)r(t)&&e.push(t);title_id.textContent=e.length}else n=0})();

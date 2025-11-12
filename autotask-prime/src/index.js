@@ -1,4 +1,7 @@
-import { DateTime } from "luxon";
+// import { DateTime } from "luxon";
+// import { getPrimes, isPrime } from 'primes-and-factors';
+import primeNumber from 'prime-number';
+// import primes from 'primes';
 
 /*
 setInterval(() => {
@@ -9,22 +12,22 @@ hh.textContent = DateTime
 }, 1000);
 */
 
-function getNatural(n){
-    if(n <= 0){
-        return [];
-    }
-    return Array.from({ length: n }, (_, index) => index + 1);
 
-}
 
 var url = window.location.search.replace("?", "");
+// const tes = document.getElementById("tes");
 if (url){
     url = Number(url);
+    const primes = [];
+    for (let i = 2; i <= url; i++) {
+        if (primeNumber(i)) {
+            primes.push(i);
+        }
+    }
+    title_id.textContent = primes.length;
 }else{
     url = 0;
 }
 
-const nature = getNatural(url);
 
 
-hh.textContent = nature.length - 2;

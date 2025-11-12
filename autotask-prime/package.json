@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "luxon": "^3.7.2"
+    "prime-number": "^2.0.0"
   },
   "devDependencies": {
     "serve": "^14.2.5",
