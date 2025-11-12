@@ -1,0 +1,1 @@
+(()=>{"use strict";var t=window.location.search.replace("?","");const e=(r=t=t?Number(t):0)<=0?[]:Array.from({length:r},(t,e)=>e+1);var r;hh.textContent=e.length-2})();
