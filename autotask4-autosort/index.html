@@ -8,12 +8,11 @@
       <h4>ponkratov_na</h4>
       <script>
          const title = document.getElementById("site_title");
-         var url = window.location.search.replace("?", "");
+         var url = window.location.search.replace("?", "").replace("[", "").replace("]", "");
          if (url) {
-            var arr = JSON.parse(url);
-            if (Array.isArray(arr)) {
-               title.innerHTML = arr.toSorted((x, y) => Number(x) - Number(y)).toString();
-            }
+            var arr = url.split(",").map((x) => Number(x));
+            arr = arr.sort((x, y) => x - y);
+            title.innerHTML = arr.toString();
          }
       </script>
    </body>
