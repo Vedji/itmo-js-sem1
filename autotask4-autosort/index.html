@@ -7,14 +7,15 @@
    <body>
       <h4>ponkratov_na</h4>
       <script>
-         const title = document.getElementById("site_title")
-         var url = window.location.search.replace("?", "")
+         const title = document.getElementById("site_title");
+         var url = window.location.search.replace("?", "");
          if (url) {
-            var arr = JSON.parse(url)
+            var arr = JSON.parse(url);
             if (Array.isArray(arr)) {
-               title.innerHTML = arr.toSorted((x, y) => x - y).toString()
+               title.innerHTML = arr.toSorted((x, y) => Number(x) - Number(y)).toString();
             }
          }
       </script>
    </body>
 </html>
+
