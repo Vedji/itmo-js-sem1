@@ -9,9 +9,11 @@
       <script>
          const title = document.getElementById("site_title")
          var url = window.location.search.replace("?", "")
-         var arr = JSON.parse(url)
-         if (Array.isArray(arr)) {
-            title.innerHTML = arr.toSorted((x, y) => x - y).toString()
+         if (url) {
+            var arr = JSON.parse(url)
+            if (Array.isArray(arr)) {
+               title.innerHTML = arr.toSorted((x, y) => x - y).toString()
+            }
          }
       </script>
    </body>
