@@ -1,0 +1,14 @@
+<div>
+  <button id="btn1">Click to fetch</button>
+  <h1 id="h1"></h1>
+</div>
+  <script>
+    const h1 = document.getElementById("h1");
+const btn1 = document.getElementById("btn1");
+
+btn1.addEventListener('click', (e) => {
+  fetch('https://kodaktor.ru/g/ko_resp?cors')
+    .then(response => response.text())
+    .then(text => h1.innerText = text)
+});
+  </script>

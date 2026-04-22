@@ -1,0 +1,51 @@
+<html>
+    <head></head>
+    <body>
+    <h4>ponkratov_na</h4>
+    <script>
+        var qs = location.search.slice(1);
+        var pairs = qs.split('&');
+        var params = {};
+        for (var i = 0; i < pairs.length; i++) {
+            var kv = pairs[i].split('=');
+            params[kv[0]] = kv[1];
+        }
+        var arrA = params['A'].split(',').map(Number);
+        var arrB = params['B'].split(',').map(Number);
+        var n = arrA.length;
+
+        var sumA = 0, sumB = 0;
+        for (var j = 0; j < n; j++) { sumA += arrA[j]; sumB += arrB[j]; }
+        var meanA = sumA / n;
+        var meanB = sumB / n;
+
+        var num = 0, dA = 0, dB = 0;
+        for (var k = 0; k < n; k++) {
+            var da = arrA[k] - meanA;
+            var db = arrB[k] - meanB;
+            num += da * db;
+            dA += da * da;
+            dB += db * db;
+        }
+        var r = num / Math.sqrt(dA * dB);
+        var absR = Math.abs(r);
+
+        var result;
+        if (absR >= 1) {
+            result = '1';
+        } else {
+            var s = absR.toString();
+            var dot = s.indexOf('.');
+            if (dot === -1) {
+            result = s + '.000';
+            } else {
+            var decimals = s.slice(dot + 1);
+            while (decimals.length < 3) decimals += '0';
+            result = s.slice(0, dot + 1) + decimals.slice(0, 3);
+            }
+        }
+        document.title = result;
+
+        </script>
+    </body>
+</html>
